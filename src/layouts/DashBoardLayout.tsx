@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Theme, Typography, useTheme } from "@mui/material";
+import { Box, CircularProgress, CssBaseline, Theme, Typography, useTheme } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { createStyles } from "@mui/styles";
 import Navbar from "../components/Navbar/Navbar";
@@ -42,24 +42,26 @@ const Basic = () => {
       );
     }
   
-    if (!data) {
-      return (
-        <Box
-          width="100vw"
-          padding={5}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography variant="h6" textAlign="center" color="error">
-            {" "}
-            Failed to load. Please try again later.
-          </Typography>
-        </Box>
-      );
-    }
+    // this prevent the outlet from rendering if the user is not logged in
+    // if (!data) {
+    //   return (
+    //     <Box
+    //       width="100vw"
+    //       padding={5}
+    //       display="flex"
+    //       justifyContent="center"
+    //       alignItems="center"
+    //     >
+    //       <Typography variant="h6" textAlign="center" color="error">
+    //         {" "}
+    //         Failed to load. Please try again later.
+    //       </Typography>
+    //     </Box>
+    //   );
+    // }
   return (
     <Box sx={styles.root}>
+       <CssBaseline />
       <Navbar />
       <Outlet />
     </Box>
